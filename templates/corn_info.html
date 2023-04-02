@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% block content%}
+<div class="container py-5" style="background-color: #757f9a; background-image: linear-gradient(147deg, #757f9a 0%, #d7dde8 100%);">
+    <header class="text-white text-center">
+        <p class="lead mb-0"> VARIEDAD DEL MAIZ: {{ corn_name }}</p>
+        <img src="https://bootstrapious.com/i/snippets/sn-img-upload/image.svg" alt="" width="300" class="mb-4">
+    </header>
+
+    <div class="row py-4">
+        <div class="col-lg-6 mx-auto">
+            <p style="color: saddlebrown; text-align: justify;">
+              <strong>{{ corn_description }}</strong>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock%}

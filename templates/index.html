@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	{% block title %}
+	<title>Inicio | Home</title>
+	{% endblock %}
+
+	{% block scripts %}
+	{% endblock %}
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+</head>
+
+<body class="d-flex flex-column min-vh-100" style="background-color: #b20a2c;">
+	<div class "bg-image" style="background-image: linear-gradient(to right, #fffbd5, #b20a2c);">
+		<br>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-2">
+					<h2 class="heading-section">Analisis de Maices Mediante ML</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-2">
+					<a class="navbar-brand" href="index.html"><span>Made by:</span>Renan Leva</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% block navbar %}
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+		<div class="container-fluid">
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+				aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="fa fa-bars"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav m-auto">
+					<li class="nav-item active"><a href="/" class="nav-link">Inicio</a></li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false">Información</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown04">
+							<a class="dropdown-item" href="{{ url_for('information', corn_type='tipo_1') }}">Maiz Tipo 1</a>
+							<a class="dropdown-item" href="{{ url_for('information', corn_type='tipo_2') }}">Maiz Tipo 2</a>
+							<a class="dropdown-item" href="{{ url_for('information', corn_type='tipo_3') }}">Maiz Tipo 3</a>
+							<a class="dropdown-item" href="{{ url_for('information', corn_type='tipo_4') }}">Maiz Tipo 4</a>
+							<a class="dropdown-item" href="{{ url_for('information', corn_type='tipo_5') }}">Maiz Tipo 5</a>
+						</div>
+					</li>
+					<li class="nav-item"><a href="{{ url_for('process_image') }}" class="nav-link">Análisis de Imagen</a></li>
+					<li class="nav-item"><a href="{{ url_for('history') }}" class="nav-link">Historial de Análisis</a></li>
+					{#
+					<!-- <li class="nav-item"><a href="{{ url_for('models') }}" class="nav-link">Modelos de Predicción</a></li> -->
+					#}
+				</ul>
+			</div>
+		</div>
+	</nav>
+	{% endblock %}
+	<!-- END nav -->
+
+	{% block content %}
+
+	{% endblock %}
+
+
+	{% block footer %}
+	<footer class="mt-auto">
+		<div class="footer-copyright text-center py-3">© 2023 Curso: MDBootstrap.com
+		</div>
+	</footer>
+	{% endblock %}
+
+	<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/popper.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+{% extends 'index.html' %}
+
+{% block title %}
+	<title>Procesamiento de Imagen</title>
+{% endblock %}
+
+{% block scripts %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" type="text/css">
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/upload.css') }}">
+{% endblock %}
+
+
+{% block content %}
+<div class="container py-5" style="background-color: #757f9a;
+background-image: linear-gradient(147deg, #757f9a 0%, #d7dde8 100%);">
+
+    <header class="text-white text-center">
+        <p class="lead mb-0">Seleccione una Imagen para realizar el Analisis</p>
+        <img src="https://bootstrapious.com/i/snippets/sn-img-upload/image.svg" alt="" width="150" class="mb-4">
+    </header>
+
+    <div class="row py-4">
+        <div class="col-lg-6 mx-auto">
+            <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
+                <form id="uploadForm" method="post" enctype="multipart/form-data">
+                    <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0">
+                </form>
+                <label id="upload-label" for="upload" class="font-weight-light text-muted">Seleccione una imagen</label>
+                <div class="input-group-append">
+                    <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i
+                            class="fa fa-cloud-upload mr-2 text-muted"></i><small
+                            class="text-uppercase font-weight-bold text-muted">Buscar...</small></label>
+                </div>
+            </div>
+
+            <!-- Uploaded image area-->
+            <p class="font-italic text-white text-center">Vista previa de la imagen:.</p>
+            <div class="image-area mt-4 text-center"><img id="imageResult" src="#" alt=""
+                    class="img-fluid rounded shadow-sm mx-auto d-block">
+            </div>
+            <div class="mt-4 text-center">
+                <button type="button" class="btn btn-outline-success">Analizar!</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/upload.js') }}"></script>
+{% endblock %}
+

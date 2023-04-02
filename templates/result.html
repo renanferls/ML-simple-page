@@ -1,0 +1,94 @@
+{% extends 'index.html' %}
+
+{% block title %}
+<title>Resultados del Analisis</title>
+{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container-fluid">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+            aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav m-auto">
+                <li class="nav-item"><a href="/" class="nav-link">Inicio</a></li>
+                {#
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Información</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown04">
+                        <a class="dropdown-item" href="{{ url_for('information', corn_type='tipo_1') }}">Maiz Tipo 1</a>
+                        <a class="dropdown-item" href="{{ url_for('information', corn_type='tipo_2') }}">Maiz Tipo 2</a>
+                        <a class="dropdown-item" href="{{ url_for('information', corn_type='tipo_3') }}">Maiz Tipo 3</a>
+                        <a class="dropdown-item" href="{{ url_for('information', corn_type='tipo_4') }}">Maiz Tipo 4</a>
+                        <a class="dropdown-item" href="{{ url_for('information', corn_type='tipo_5') }}">Maiz Tipo 5</a>
+                    </div>
+                </li>
+                #}
+                <li class="nav-item active"><a href="·" class="nav-link">Resultados del Análisis</a></li>
+                <li class="nav-item"><a href="{{ url_for('process_image') }}" class="nav-link">Nuevo Análisis</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Historial de Análisis</a></li>
+                {#
+                <!-- <li class="nav-item"><a href="{{ url_for('models') }}" class="nav-link">Modelos de Predicción</a></li> -->
+                #}
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5" style="background-color: #757f9a;
+background-image: linear-gradient(147deg, #757f9a 0%, #d7dde8 100%);">
+
+    <header class="text-white text-center">
+        <p class="h1 mb-0">Resultados del análisis</p>
+        <br>
+        <img src="https://bootstrapious.com/i/snippets/sn-img-upload/image.svg" alt="" width="150" class="mb-4">
+    </header>
+
+    <div class container>
+        <div class="row py-4">
+            <div class="col-lg-6 mx-auto text-center">
+                <p class="h1 mb-0">Segmentación de la Imágen</p>
+                <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <img src="image1.jpg" alt="Image 1">
+                <p>Text below Image 1</p>
+            </div>
+            <div class="col-md-4">
+                <img src="image2.jpg" alt="Image 2">
+                <p>Text below Image 2</p>
+            </div>
+            <div class="col-md-4">
+                <img src="image3.jpg" alt="Image 3">
+                <p>Text below Image 3</p>
+            </div>
+            <div class="col-md-4">
+                <img src="image1.jpg" alt="Image 1">
+                <p>Text below Image 4</p>
+            </div>
+            <div class="col-md-4">
+                <img src="image2.jpg" alt="Image 2">
+                <p>Text below Image 5</p>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <p class="h1 mb-0 text-center">Resultados Según los Modelos</p>
+    <br>
+
+    <div class="container">
+        
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/upload.js') }}"></script>
+{% endblock %}
