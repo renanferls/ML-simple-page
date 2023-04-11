@@ -28,9 +28,10 @@
                     </div>
                 </li>
                 #}
-                <li class="nav-item active"><a href="#" class="nav-link">Resultados del Análisis</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Resultados del Análisis</a></li>
                 <li class="nav-item"><a href="{{ url_for('load_image') }}" class="nav-link">Nuevo Análisis</a></li>
-                <li class="nav-item"><a href="{{ url_for('comparative') }}" class="nav-link">Comparativa de Modelos</a></li>
+                <li class="nav-item active"><a href="{{ url_for('comparative') }}" class="nav-link">Nueva Comparativa de
+                        Modelos</a></li>
             </ul>
         </div>
     </div>
@@ -42,40 +43,48 @@
 background-image: linear-gradient(147deg, #757f9a 0%, #d7dde8 100%);">
 
     <div class container>
-        <div class="row py-4">
-            <div class="col-lg-6 mx-auto text-center">
-                <p class="h1 mb-0">Proceso de Analisis</p>
-                <br>
+        <div class="row justify-content-center">
+            <div class="col-md-4 text-center">
+                <p class="h3 text-dark">Prediccion del Metodo {{ metodo_1 }}</p>
+                <img src="{{ src_image }}" alt="Image 1" class="img-fluid">
+                <p class="text-dark">Variedad: <b>{{ prediction_1 }}</b></p>
+                <p class="text-dark">Presicion: <b>{{ precision_1 }}%</b></p>
+                <p class="text-dark">Tiempo de respuesta: <b>{{ time_1 }} seg</b></p>
+            </div>
+            <div class="col-md-4 text-center">
+                <p class="h3 text-dark">Prediccion del Metodo {{ metodo_2 }}</p>
+                <img src="{{ src_image }}" alt="Image 2" class="img-fluid">
+                <p class="text-dark">Variedad: <b>{{ prediction_2 }}</b></p>
+                <p class="text-dark">Presicion: <b>{{ precision_2 }}%</b></p>
+                <p class="text-dark">Tiempo de respuesta: <b>{{ time_2 }} seg</b></p>
             </div>
         </div>
-        <div>
-            <!-- {{ filename}} -->
-        </div>
-        <div class="row">
-            <div class="col-md-4 text-center">
-                <img src="{{ segmented_image }}" alt="Image 1">
-                <p class="text-dark">Segmentacion de la Imagen</p>
-            </div>
-            <div class="col-md-4 text-center">
-                <img src="{{ edges_image }}" alt="Image 2">
-                <p class="text-dark">Deteccion de bordes</p>
-            </div>
-            <div class="col-md-4 text-center">
-                <img src="{{ features_image }}" alt="Image 3">
-                <p class="text-dark">Extraccion de Caracteristicas</p>
-            </div>
+        <hr>
+        <div class="row justify-content-center m-auto px-2">
+            <br>
+            <p class="h3 text-center text-dark">CUADRO COMPARATIVO DE RESULTADOS</p>
+            <table class="table text-center">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Variedad</th>
+                        <th scope="col">Presicion Metodo {{ metodo_1 }}</th>
+                        <th scope="col">Presicion Metodo {{ metodo_2 }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for index, (class, presicion_1, presicion_2) in enumerate(zip(classes, array_1, array_2)) %}
+                    <tr>
+                        <th scope="row">{{ index + 1 }}</th>
+                        <td>{{ class }}</td>
+                        <td>{{ round(presicion_1, 4) }}%</td>
+                        <td>{{ round(presicion_2, 4) }}%</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
-
-    <header class="text-white text-center">
-        <p class="h1 mb-0">Resultados del análisis</p>
-        <br>
-        <img src="{{ image_url }}" alt="image" width="400" class="mb-4">
-        <br>
-        <p class="h3 mb-0">
-            La imagen corresponde a la variedad: <b>{{ prediction }}</b>
-        </p>
-    </header>        
 </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

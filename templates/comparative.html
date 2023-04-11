@@ -35,8 +35,8 @@
 						<a class="dropdown-item" href="{{ url_for('information', corn_type='tipo_5') }}">Maiz Tipo 5</a>
 					</div>
 				</li>
-				<li class="nav-item active"><a href="{{ url_for('load_image') }}" class="nav-link">Análisis de Imagen</a></li>
-				<li class="nav-item"><a href="{{ url_for('comparative') }}" class="nav-link">Comparativa de Modelos</a></li>
+				<li class="nav-item"><a href="{{ url_for('load_image') }}" class="nav-link">Análisis de Imagen</a></li>
+				<li class="nav-item active"><a href="{{ url_for('comparative') }}" class="nav-link">Comparativa de Modelos</a></li>
 			</ul>
 		</div>
 	</div>
@@ -47,13 +47,12 @@
 background-image: linear-gradient(147deg, #757f9a 0%, #d7dde8 100%);">
 
 	<header class="text-white text-center">
-		<p class="lead mb-0">Seleccione una Imagen para realizar el Analisis</p>
-		<img src="https://bootstrapious.com/i/snippets/sn-img-upload/image.svg" alt="" width="150" class="mb-4">
+		<p class="lead mb-0">Comparativa de modelos para prediccion</p>
 	</header>
 
 	<div class="row py-4">
 		<div class="col-lg-6 mx-auto">
-			<form id="uploadForm" method="post" enctype="multipart/form-data" action="/load_image">
+			<form id="uploadForm" method="post" enctype="multipart/form-data" action="/comparative">
 				<div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
 
 					<input id="upload" type="file" onchange="readURL(this);" class="form-control border-0"

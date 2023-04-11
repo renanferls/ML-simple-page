@@ -7,18 +7,8 @@ from tensorflow.keras.models import Model, load_model
 import tensorflow_hub as hub
 import matplotlib.pyplot as plt
 from PIL import Image
+from datetime import datetime
 upload_folder = os.path.join('static', 'images')
-
-classes = [
-    "blanco",
-    "chullpi",
-    "cristalino",
-    "morado",
-    "morocho",
-    "paro",
-    "piscorunto",
-    "san-geronimo"
-]
 
 def prepareImage(path):
     IMG_SIZE = 80
@@ -36,11 +26,12 @@ def predictionWithCNN(path):
     x = load_img(path, target_size=(224, 224))
     y = img_to_array(x)
     y = np.expand_dims(y, axis=0)
+    time_ini = datetime.now()
     array = model.predict(y)
-    print("array value", array)
+    time_fin = datetime.now()
+    time_tot = (time_fin-time_ini).seconds
     position = np.argmax(array)
-    print("position", position)
-    return classes[position]
+    return array, position, time_tot
 
 def imageSegmentation(path):
     path = "."+path
